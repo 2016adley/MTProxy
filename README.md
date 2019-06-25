@@ -60,8 +60,17 @@ Also feel free to check out other options using `mtproto-proxy --help`.
 7. Set received tag with arguments: `-P <proxy tag>`
 8. Enjoy.
 
+## Random padding
+Due to some ISPs detecting MTProxy by packet sizes, random padding is
+added to packets if such mode is enabled.
+
+It's only enabled for clients which request it.
+
+Add `dd` prefix to secret (`cafe...babe` => `ddcafe...babe`) to enable
+this mode on client side.
+
 ## Systemd example configuration
-1. Create systemd service file (it's standart path for the most Linux distros, but you should check it before):
+1. Create systemd service file (it's standard path for the most Linux distros, but you should check it before):
 ```bash
 nano /etc/systemd/system/MTProxy.service
 ```
@@ -97,3 +106,4 @@ systemctl enable MTProxy.service
 
 ## Docker image
 Telegram is also providing [official Docker image](https://hub.docker.com/r/telegrammessenger/proxy/).
+Note: the image is outdated.
